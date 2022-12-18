@@ -30,9 +30,8 @@ pipeline {
         }
         stage('Push to DockerHub') {
             steps {
-                withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+                
                 sh 'docker login -u ${dockerHubUser} -p ${dockerhub}'
-                }
                 sh 'docker push sanketmajale/app-image-jenkins:1'
             }
         
