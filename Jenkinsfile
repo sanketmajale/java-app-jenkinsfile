@@ -7,6 +7,7 @@ pipeline {
         imageName = "java-login-app"
         dockerImage = ''
         dockerHubUser = 'sanketmajale'
+        DOCKERHUB_CREDENTIALS=credentials('docker-registery')
     }
     stages {
         stage('git clone') {
@@ -30,8 +31,8 @@ pipeline {
         }
         stage('Push to DockerHub') {
             steps {
-                
-                sh 'docker login -u ${dockerHubUser} -p ${dockerhub}'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'        
+            
                 sh 'docker push sanketmajale/app-image-jenkins:1'
             }
         
