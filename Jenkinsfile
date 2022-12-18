@@ -1,17 +1,17 @@
 pipeline {
-    agent { label 'my-node' } 
+    agent { label 'google-vm' } 
     tools {
         maven 'M3'
     }
     environment {
         imageName = "java-login-app"
         dockerImage = ''
-        dockerHubUser = 'tabrezid54'
+        dockerHubUser = 'sanketmajale'
     }
     stages {
         stage('Clone Repo') {
             steps {
-                git 'https://github.com/tabrezid54/java-login-app.git'
+                git 'https://github.com/sanketmajale/java-app-jenkinsfile.git'
             }
         
         }
@@ -40,11 +40,11 @@ pipeline {
             }
         
         }
-        stage('Deploy K8s Resorces') {
+        /*stage('Deploy K8s Resorces') {
             steps {
                 sh 'kubectl create -f $WORKSPACE/kubernetes-manifest/.'
                 
             }
-        }
+        }*/
     }
 }
