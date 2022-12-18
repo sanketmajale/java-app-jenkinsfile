@@ -24,9 +24,7 @@ pipeline {
         }
         stage('Create Docker Image With Tag') {
             steps {
-                script {
-                   dockerImage = docker.build("${dockerHubUser}/${imageName}" ,"$WORKSPACE")  
-                }
+                sh 'docker build -t sanketmajale/app-image-jenkins:1 .'
             }
         
         }
