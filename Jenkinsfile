@@ -41,11 +41,11 @@ pipeline {
             }
         
         }
-        /*stage('Deploy K8s Resorces') {
+        stage('Deploy K8s Resorces') {
             steps {
                 sh 'kubectl create -f $WORKSPACE/kubernetes-manifest/.'
                 
             }
-        }*/
+        }
     }
 }
