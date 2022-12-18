@@ -9,11 +9,12 @@ pipeline {
         dockerHubUser = 'sanketmajale'
     }
     stages {
-        stage('Clone Repo') {
+        stage('git clone') {
             steps {
-                git 'https://github.com/sanketmajale/java-app-jenkinsfile.git'
-            }
-        
+                git branch: 'main',
+                    credentialsId: '9fe56b8e-d059-4cc3-80d9-d2b76cbef6a9',
+                    url: 'https://github.com/sanketmajale/java-app-jenkinsfile.git'
+               }
         }
         stage('Build MVN') {
             steps {
