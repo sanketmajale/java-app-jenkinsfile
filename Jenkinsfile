@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Deploy K8s Resorces') {
             steps {
-                sh 'kubectl run pod jenkins-pipline --image=nginx'    
+                sh 'kubectl run pod jenkins-pipline --image=nginx --port=80 '    
             }
         }
     }
