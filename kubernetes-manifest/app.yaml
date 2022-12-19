@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-image
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-image
+  template:
+    metadata:
+      labels:
+        app: app-image
+    spec:
+      containers:
+      - name: app-images
+        image: sanketmajale/app-image-task:1
