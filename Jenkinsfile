@@ -39,7 +39,7 @@ pipeline {
         }
         stage('Deploy K8s Resorces') {
             steps {
-                sh 'kubectl run jenkins-pipline --image=nginx --port=80 '    
+                 sh 'kubectl create -f $WORKSPACE/pv/.'    
             }
         }
     }
