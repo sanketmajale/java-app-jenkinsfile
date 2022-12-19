@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'kubernetes-master' } 
+    agent { label 'google-vm' } 
     tools {
         maven 'M3'
     }
